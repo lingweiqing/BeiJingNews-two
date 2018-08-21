@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import com.example.ling.beijingnews.R;
 import com.example.ling.beijingnews.SplashActivity;
 import com.example.ling.beijingnews.utils.CacheUtil;
+import com.example.ling.beijingnews.utils.DensityUtil;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,7 @@ public class GuideActivity extends Activity {
     private ArrayList<ImageView> imageviews;
     private ImageView iv_red_point;
     private int leftmax;
+    private int widthdp ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class GuideActivity extends Activity {
                 R.drawable.guide_2,
                 R.drawable.guide_3
         };
+        widthdp = DensityUtil.dipToPix(this,10);
 
         imageviews = new ArrayList<>();
         for (int i = 0 ;i<ids.length;i++){
@@ -59,10 +62,12 @@ public class GuideActivity extends Activity {
             ImageView point = new ImageView(this);
             point.setBackgroundResource(R.drawable.point_normal);
             //单位是像素，需要做适配
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(10,10);
+            //把单位当成pd转换成相应的像素
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(widthdp,widthdp);
             if (i!=0){
                 //不包括第0个点，所有的点距离左边有十个像素
-                params.leftMargin=10;
+                params.leftMargin=widthdp;
             }
             point.setLayoutParams(params);
             // 添加到线性布局里面
