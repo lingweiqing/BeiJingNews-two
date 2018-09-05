@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.example.ling.beijingnews.R;
 import com.example.ling.beijingnews.fragment.ContentFragment;
+import com.example.ling.beijingnews.fragment.LeftMenuFragment;
 import com.example.ling.beijingnews.utils.DensityUtil;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -24,7 +25,7 @@ public class MainActivity extends SlidingFragmentActivity {
         setBehindContentView(R.layout.activity_leftmenu);
         //设置右侧菜单
         SlidingMenu slidingMenu = getSlidingMenu();
-        slidingMenu.setSecondaryMenu(R.layout.activity_rightmenu);
+        //slidingMenu.setSecondaryMenu(R.layout.activity_rightmenu);
 
         //设置显示模式
         slidingMenu.setMode(SlidingMenu.LEFT);
@@ -53,7 +54,7 @@ public class MainActivity extends SlidingFragmentActivity {
 
         //3.替换
         fragmentTransaction.replace(R.id.fl_main_content,new ContentFragment() , MAIN_CONTENT_TAG);//主页
-        fragmentTransaction.replace(R.id.fl_leftmenu,new ContentFragment() , LEFTMENU_TAG);//左侧菜单
+        fragmentTransaction.replace(R.id.fl_leftmenu,new LeftMenuFragment() , LEFTMENU_TAG);//左侧菜单
 
         //4.提交
 
